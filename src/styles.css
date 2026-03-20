@@ -337,8 +337,7 @@ main {
   width: 45%;
   background: #000;
   flex-shrink: 0;
-  flex: 1;
-  min-height: 0;
+  height: 300px;
 }
 
 .video-live iframe {
@@ -350,7 +349,6 @@ main {
 #live-news-scroll {
   flex: 1;
   overflow-y: auto;
-  min-height: 0;
 }
 
 .right-panel {
