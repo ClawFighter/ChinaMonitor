@@ -81,17 +81,17 @@
 }
 
 [data-theme='light'] {
-  --bg-color: #e5e7eb;        /* 浅灰 - 整个网页背景 */
-  --text-color: #1e293b;
-  --panel-bg: #ffffff;        /* 白色 - 面板背景（正文背景） */
-  --accent-color: #2563eb;
-  --border-color: #d1d5db;
-  --card-bg: #6b7280;         /* 中灰 - 标题背景（调浅） */
+  --bg-color: #d1d5db;        /* 中灰 - 整个网页背景 (Gray 300) */
+  --text-color: #1f2937;      /* 深灰正文 (Gray 800) */
+  --panel-bg: #ffffff;        /* 白色 - 面板背景 */
+  --accent-color: #2563eb;    /* 蓝色强调 */
+  --border-color: #9ca3af;    /* 中灰边框 (Gray 400) */
+  --card-bg: #6b7280;         /* 中灰标题背景 (Gray 500) */
   --header-bg: #ffffff;       /* 白色 - Header 背景 */
-  --header-text: #1e293b;
-  --icon-color: #60a5fa;      /* 浅蓝 - 图标颜色 */
-  --clock-color: #ffffff;     /* 白色 - 亮色主题时钟颜色 */
-  --weather-color: #000000;   /* 黑色 - 亮色主题天气温度颜色 */
+  --header-text: #1f2937;     /* 深灰文字 */
+  --icon-color: #2563eb;      /* 蓝色图标 - 与 accent 一致 */
+  --clock-color: #1f2937;     /* 深色时钟 - 确保可见 */
+  --weather-color: #1f2937;   /* 深色温度 - 确保可见 */
 }
 
 * {
@@ -265,9 +265,9 @@ main {
   left: 1rem;
 }
 
-/* 亮色主题：Cross Rates 图标浅蓝 */
+/* 亮色主题：Cross Rates 图标白色 */
 [data-theme='light'] .cross-rates-section h2 i {
-  color: #60a5fa;
+  color: #ffffff;
 }
 
 [data-theme='light'] .cross-rates-section h2 {
@@ -327,6 +327,23 @@ main {
   color: #60a5fa;
 }
 
+/* 亮色主题：标题蓝色背景 + 白色文字和图标 */
+[data-theme='light'] .left-panel h2,
+[data-theme='light'] .right-panel h2,
+[data-theme='light'] .bottom-section h2,
+[data-theme='light'] .cross-rates-section h2 {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+/* 亮色主题：标题图标白色 */
+[data-theme='light'] .left-panel h2 i,
+[data-theme='light'] .right-panel h2 i,
+[data-theme='light'] .bottom-section h2 i,
+[data-theme='light'] .cross-rates-section h2 i {
+  color: #ffffff;
+}
+
 .left-panel-content {
   display: flex;
   flex: 1;
@@ -381,9 +398,9 @@ main {
   left: 1rem;
 }
 
-/* 亮色主题：图标浅蓝 */
+/* 亮色主题：图标白色 */
 [data-theme='light'] .right-panel h2 i {
-  color: #60a5fa;
+  color: #ffffff;
 }
 
 #weather-content {
@@ -431,9 +448,9 @@ main {
   left: 1rem;
 }
 
-/* 亮色主题：图标浅蓝 */
+/* 亮色主题：图标白色 */
 [data-theme='light'] .bottom-section h2 i {
-  color: #60a5fa;
+  color: #ffffff;
 }
 
 .bjt-time {
@@ -444,6 +461,11 @@ main {
   right: 1rem;
 }
 
+/* 亮色主题：BJT 时间淡金色 */
+[data-theme='light'] .bjt-time {
+  color: #fde047;
+}
+
 .tickers-wrapper {
   flex: 1;
   display: flex;
@@ -451,6 +473,7 @@ main {
   padding: 0;
   gap: 0;
   overflow: hidden;
+  background: #475569;  /* 与 ticker-row 一致 */
 }
 
 .ticker-row {
@@ -461,7 +484,7 @@ main {
   height: 50px;
   margin: 0;
   padding: 0;
-  background: #5b7c99;  /* 柔和的蓝色，不深不浅 */
+  background: #475569;  /* 深灰蓝 */
 }
 
 .ticker-label {
