@@ -337,7 +337,8 @@ main {
   width: 45%;
   background: #000;
   flex-shrink: 0;
-  height: 300px;
+  flex: 1;
+  min-height: 0;
 }
 
 .video-live iframe {
