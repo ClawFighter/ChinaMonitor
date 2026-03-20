@@ -5,7 +5,7 @@ import { apiClient } from '../api/client';
 export class LiveNews {
   private container: HTMLElement | null = null;
   private newsItems: any[] = [];
-  private readonly maxDisplay = 7;  // 每次显示 7 个新闻
+  private readonly maxDisplay = 6;  // 每次显示 6 个新闻
   private scrollInterval: NodeJS.Timeout | null = null;
   private batchIndex = 0;
 

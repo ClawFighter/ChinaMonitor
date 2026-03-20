@@ -55,7 +55,8 @@ export class WeatherForecast {
       this.currentBatch = 0;
       this.updateDisplayItems();
       
-      console.log(`Loaded ${allWeather.length} forecasts, ${this.allWeatherItems.length} unique cities, batch ${this.currentBatch + 1}/4`);
+      const totalBatches = Math.ceil(this.allWeatherItems.length / this.BATCH_SIZE);
+      console.log(`Loaded ${allWeather.length} forecasts, ${this.allWeatherItems.length} unique cities, batch ${this.currentBatch + 1}/${totalBatches}`);
       this.render();
     } catch (error) {
       console.error('Failed to load weather forecast:', error);
