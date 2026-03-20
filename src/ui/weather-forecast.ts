@@ -5,12 +5,12 @@ import { apiClient } from '../api/client';
 export class WeatherForecast {
   private container: HTMLElement | null = null;
   private allWeatherItems: any[] = [];  // All 34 cities
-  private displayItems: any[] = [];     // Current 10 items to display
+  private displayItems: any[] = [];     // Current 9 items to display
   private refreshTimer: NodeJS.Timeout | null = null;
   private batchTimer: NodeJS.Timeout | null = null;
   private weatherList: HTMLElement | null = null;
-  private currentBatch: number = 0;     // Current batch index (0-3)
-  private readonly BATCH_SIZE = 10;
+  private currentBatch: number = 0;     // Current batch index
+  private readonly BATCH_SIZE = 9;
   private readonly BATCH_INTERVAL = 30 * 1000;  // 30 seconds
 
   constructor(containerId: string) {
