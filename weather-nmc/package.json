@@ -1,0 +1,14 @@
+{
+  "name": "weather-nmc",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/api-server.js",
+  "scripts": {
+    "fetch": "node src/fetcher.js",
+    "api": "node src/api-server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "better-sqlite3": "^11.0.0"
+  }
+}

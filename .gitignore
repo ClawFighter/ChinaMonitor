@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+db/
+
+# API Keys & Secrets
+*.key
+*.pem
+*.cert
+secrets/
+credentials/
+config/secrets.*
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Temporary
+*.tmp
+*.temp
+.cache/
+tmp/
+
+# Documentation (keep README.md)
+*.md
+!README.md
+
+# Package lock (optional - uncomment if you don't want to commit)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Sensitive data
+*.bak
+*.backup
+*.old
+data/cache.json

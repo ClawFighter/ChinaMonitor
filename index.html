@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>China Monitor - Real-time China News, Weather & Stock Dashboard</title>
+    <meta name="description" content="Live dashboard tracking China news, weather forecasts for 34 provinces, and real-time stock prices." />
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&family=DSEG14&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="brand">
+          <img src="/logo/logo_day.png" alt="China Monitor" class="brand-logo day-logo" />
+          <img src="/logo/logo_night.png" alt="China Monitor" class="brand-logo night-logo" />
+        </div>
+        <div class="center-clock">
+          <span id="clock">Loading...</span>
+        </div>
+        <div class="weather-controls">
+          <div class="weather-display">
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="weather-location">--</span>
+            <span id="weather-icon" class="weather-icon-font">--</span>
+            <span id="weather-temp">--°C / --°F</span>
+          </div>
+          <div class="controls">
+            <button id="theme-toggle" title="Toggle theme"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="top-section">
+          <div class="left-panel">
+            <h2><i class="fa-solid fa-newspaper"></i> LIVE NEWS</h2>
+            <div class="left-panel-content">
+              <div class="video-live"><iframe id="youtube-player" src="" frameborder="0" allowfullscreen></iframe></div>
+              <div id="live-news-scroll"><div id="live-news-content"></div></div>
+            </div>
+          </div>
+          <div class="right-panel">
+            <h2><i class="fa-solid fa-cloud-sun"></i> Weather</h2>
+            <div id="weather-content"></div>
+          </div>
+        </section>
+        
+        <!-- Cross Rates: G7 & BRICS -->
+        <section class="cross-rates-section">
+          <h2><i class="fa-solid fa-money-bill-transfer"></i> Cross Rates</h2>
+          <div id="cross-rates-widget"></div>
+        </section>
+        
+        <section class="bottom-section">
+          <h2><i class="fa-solid fa-chart-line"></i> Real-time Stock Prices <span id="bjt-time" class="bjt-time"></span></h2>
+          <div class="tickers-wrapper">
+            <div class="ticker-row"><div class="ticker-label">A-SHARE</div><div id="stock-ticker-a" class="ticker-container"><div id="stock-content-a" class="ticker-content"></div></div></div>
+            <div class="ticker-row"><div class="ticker-label">H-SHARE</div><div id="stock-ticker-h" class="ticker-container"><div id="stock-content-h" class="ticker-content"></div></div></div>
+            <div class="ticker-row"><div class="ticker-label">T-SHARE</div><div id="stock-ticker-t" class="ticker-container"><div id="stock-content-t" class="ticker-content"></div></div></div>
+          </div>
+        </section>
+      </main>
+      <footer id="site-footer">
+        <div class="footer-content">
+          <div class="footer-section"><h4>China Monitor</h4><p>Real-time China-focused intelligence dashboard</p><p class="version">v1.0</p></div>
+          <div class="footer-section"><h4>Data Sources</h4><p><strong>News:</strong> <a href="https://news.google.com" target="_blank" rel="noopener" class="footer-link">Google News</a></p><p><strong>Weather:</strong> <a href="https://github.com/chubin/wttr.in" target="_blank" rel="noopener" class="footer-link">wttr.in</a> + <a href="http://www.nmc.cn" target="_blank" rel="noopener" class="footer-link">NMC</a></p><p><strong>Stocks:</strong> <a href="https://www.tradingview.com" target="_blank" rel="noopener" class="footer-link">TradingView</a></p></div>
+          <div class="footer-section"><h4>Typography</h4><p><a href="https://www.keshikan.net/fonts-e.html" target="_blank" rel="noopener" class="footer-link">DSEG Fonts by keshikan</a></p><p>DSEG7 · DSEG14 · DSEG Weather</p></div>
+          <div class="footer-section"><h4>Links</h4><p><a href="/about.html" class="footer-link">About</a></p><p><a href="https://github.com" target="_blank" rel="noopener" class="footer-link">GitHub</a></p><p><a href="https://worldmonitor.app" target="_blank" rel="noopener" class="footer-link">World Monitor</a></p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 China Monitor. All rights reserved.</p><p class="view-counter">Views: <span id="view-count" class="view-count">00000000</span></p><p>For research and educational purposes only.</p></div>
+      </footer>
+    </div>
+    
+    <!-- 竖屏/移动端提示 -->
+    <div id="mobile-warning" class="mobile-warning">
+      <div class="warning-content">
+        <i class="fa-solid fa-desktop"></i>
+        <h2>Desktop Required</h2>
+        <p>China Monitor is optimized for desktop browsers</p>
+        <p>Please rotate your device or use a desktop computer</p>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

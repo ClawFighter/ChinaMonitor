@@ -1,0 +1,5 @@
+# China Monitor - Robots.txt
+User-agent: *
+Allow: /
+Crawl-delay: 1
+Sitemap: https://chinamonitor.app/sitemap.xml
