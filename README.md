@@ -6,10 +6,10 @@ Real-time China-focused intelligence dashboard — aggregating news, weather for
 
 ## 🌟 Features
 
-- **Live News Aggregation** - Curated China-related news from Google News RSS
-- **Weather Forecasts** - 3-day forecasts for 34 Chinese provinces and municipalities
+- **Live News Aggregation** - Curated China-related news from Google News + SCMP (6 items per batch, rotates every 30s)
+- **Weather Forecasts** - 3-day forecasts for 34 Chinese provinces (9 cities per batch, rotates every 30s)
 - **Real-time Stock Prices** - A-Shares, H-Shares, and T-Shares via TradingView widgets
-- **Cross Rates** - G7 & BRICS currency exchange rates
+- **Cross Rates** - G7 & BRICS currency exchange rates (CNY, HKD, TWD, USD focus)
 - **Beijing Time Display** - Current time in China (UTC+8)
 - **Dark/Light Theme** - Auto-switch based on local time (7:00-19:00) or manual toggle
 - **Responsive Design** - Desktop-optimized with mobile warnings
@@ -33,8 +33,8 @@ Visit [chinamonitor.app](https://chinamonitor.app)
 - **Database**: SQLite
 
 ### Data Sources
-- **News**: Google News RSS
-- **Weather**: wttr.in + NMC (National Meteorological Center)
+- **News**: Google News + SCMP (South China Morning Post)
+- **Weather**: wttr.in + NMC (National Meteorological Center of China)
 - **Stocks & Forex**: TradingView Widgets
 - **Live Video**: YouTube Embedded Player
 
@@ -99,7 +99,7 @@ china-monitor/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/china-monitor.git
+git clone https://github.com/ClawFighter/ChinaMonitor.git
 cd china-monitor
 
 # Install dependencies
@@ -161,11 +161,11 @@ bash stop.sh
 
 ### Weather Batch Rotation
 
-Weather forecasts rotate every 30 seconds:
-- Batch 1: Cities 1-10
-- Batch 2: Cities 11-20
-- Batch 3: Cities 21-30
-- Batch 4: Cities 31-34
+Weather forecasts rotate every 30 seconds (9 cities per batch):
+- Batch 1: Cities 1-9
+- Batch 2: Cities 10-18
+- Batch 3: Cities 19-27
+- Batch 4: Cities 28-34
 - Then loops back to Batch 1
 
 ## 📊 API Endpoints
