@@ -2,6 +2,15 @@
 
 import './unregister-sw.ts'
 import './styles.css'
+
+// 移除 loading 遮罩层
+function hideLoadingOverlay(): void {
+  const overlay = document.getElementById('loading-overlay');
+  if (overlay) {
+    overlay.classList.add('hidden');
+    setTimeout(() => overlay.remove(), 300);
+  }
+}
 import { ThemeManager } from './ui/theme'
 import { ClockDisplay } from './ui/clock'
 import { LiveNews } from './ui/live-news'
@@ -83,6 +92,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   updateBJTTime();
   setInterval(updateBJTTime, 1000);
+
+  // 隐藏 loading 遮罩层
+  hideLoadingOverlay();
 
   console.log('China Monitor initialized')
 })

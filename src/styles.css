@@ -136,6 +136,7 @@ header {
 .brand-logo {
   height: 60px;
   width: auto;
+  visibility: visible;  /* 覆盖内联样式的 hidden */
 }
 
 /* Logo visibility by theme */
