@@ -26,8 +26,6 @@ export class StockTicker {
 
   private setupThemeListener(): void {
     const observer = new MutationObserver(() => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      console.log(`Theme changed to ${theme}, re-rendering stock widgets...`);
       this.renderTradingViewWidget('A', A_SHARES);
       this.renderTradingViewWidget('H', H_SHARES);
       this.renderTradingViewWidget('T', T_SHARES);

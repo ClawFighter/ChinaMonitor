@@ -19,12 +19,9 @@ export class HeaderWeather {
       return
     }
 
-    console.log('HeaderWeather initialized')
-
     // Hide weather display initially (only show if geolocation granted)
     if (this.weatherDisplay) {
       this.weatherDisplay.style.display = 'none'
-      console.log('Weather display hidden initially')
     }
 
     await this.loadLocalWeather()
@@ -32,24 +29,16 @@ export class HeaderWeather {
   }
 
   private async loadLocalWeather(): Promise<void> {
-    console.log('loadLocalWeather called')
     try {
       // Try browser geolocation first
       if ('geolocation' in navigator) {
-        console.log('Geolocation API available')
         const position = await this.getGeolocation()
         if (position) {
-          console.log('Geolocation granted, fetching weather...')
           await this.fetchWeather(position.coords.latitude, position.coords.longitude)
           return
-        } else {
-          console.log('Geolocation denied, trying IP...')
         }
-      } else {
-        console.log('Geolocation API not available')
       }
       // Fallback to IP-based location
-      console.log('Fetching weather by IP...')
       await this.fetchWeatherByIP()
     } catch (error) {
       console.error('Failed to get local weather:', error)
@@ -62,11 +51,9 @@ export class HeaderWeather {
     return new Promise((resolve) => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log('Geolocation permission granted')
           resolve(position)
         },
-        (error) => {
-          console.log('Geolocation permission denied or error:', error.message)
+        (_error) => {
           // Hide weather display if permission denied
           this.hideWeatherDisplay()
           resolve(null)
@@ -94,8 +81,6 @@ export class HeaderWeather {
       const response = await fetch('https://wttr.in/?format=3')
       const text = await response.text()
       
-      console.log('wttr.in result:', text)
-      
       // Parse: "los angeles: ☀️   +22°C"
       const match = text.match(/^(.+?):\s*(\S+)\s*([+-]?\d+)°C/)
       if (match) {
@@ -110,7 +95,6 @@ export class HeaderWeather {
             word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
           ).join(' ')
           this.locationElement.textContent = capitalizedLocation
-          console.log('Location set to:', capitalizedLocation)
         }
         
         // Map emoji to DSEG Weather icon
@@ -126,9 +110,6 @@ export class HeaderWeather {
         
         // Show weather display
         this.showWeatherDisplay()
-        console.log('Weather display shown for:', location)
-      } else {
-        console.log('wttr.in returned invalid format:', text)
       }
     } catch (error) {
       console.error('Failed to get weather from wttr.in:', error)

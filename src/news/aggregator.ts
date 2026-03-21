@@ -17,13 +17,11 @@ export class NewsAggregator {
   private domains = 'southchinamorningpost.com,chinadaily.com.cn,xinhuanet.com,people.com.cn'
 
   async init(): Promise<void> {
-    console.log('NewsAggregator initialized')
     await this.fetchNews()
   }
 
   async fetchNews(): Promise<NewsItem[]> {
     if (!this.apiKey) {
-      console.warn('NewsAPI key not configured. Using mock data.')
       return this.getMockNews()
     }
 

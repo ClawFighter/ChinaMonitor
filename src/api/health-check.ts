@@ -62,7 +62,6 @@ export async function performHealthCheck(): Promise<boolean> {
       const status = await checkHealth();
       
       if (status.overall) {
-        console.log('Health check passed:', status);
         return true;
       }
       

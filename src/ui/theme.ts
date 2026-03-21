@@ -53,7 +53,6 @@ export class ThemeManager {
         if (this.currentTheme !== timeBasedTheme) {
           this.currentTheme = timeBasedTheme;
           this.applyTheme();
-          console.log(`Auto-switched to ${timeBasedTheme} theme based on local time`);
         }
       }
     }, 60 * 1000); // Check every minute

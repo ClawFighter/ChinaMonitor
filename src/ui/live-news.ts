@@ -27,7 +27,6 @@ export class LiveNews {
     try {
       const response = await apiClient.get('/api/news?limit=100');
       this.newsItems = response.news || [];
-      console.log(`Loaded ${this.newsItems.length} news items`);
       this.render();
     } catch (error) {
       console.error('Failed to load live news:', error);
@@ -60,8 +59,6 @@ export class LiveNews {
         </div>
       `).join('')}
     `;
-    
-    console.log(`Rendered ${displayItems.length} news items (batch ${Math.floor(start/this.maxDisplay) + 1})`);
   }
 
   private formatTime(dateStr: string): string {

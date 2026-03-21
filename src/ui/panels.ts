@@ -5,7 +5,6 @@ export class PanelManager {
 
   init(): void {
     this.panelContainer = document.getElementById('panel-container')
-    console.log('PanelManager initialized')
   }
 
   addPanel(panelId: string, content: string): void {

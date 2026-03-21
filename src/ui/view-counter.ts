@@ -33,8 +33,6 @@ export class ViewCounter {
       }
       
       this.element!.textContent = formatted;
-      
-      console.log(`View count: ${formatted}`);
     } catch (error) {
       console.error('Failed to fetch view count:', error);
       this.element!.textContent = '00,000,000';

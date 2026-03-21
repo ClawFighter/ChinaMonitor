@@ -55,8 +55,6 @@ export class WeatherForecast {
       this.currentBatch = 0;
       this.updateDisplayItems();
       
-      const totalBatches = Math.ceil(this.allWeatherItems.length / this.BATCH_SIZE);
-      console.log(`Loaded ${allWeather.length} forecasts, ${this.allWeatherItems.length} unique cities, batch ${this.currentBatch + 1}/${totalBatches}`);
       this.render();
     } catch (error) {
       console.error('Failed to load weather forecast:', error);
@@ -106,7 +104,6 @@ export class WeatherForecast {
       this.currentBatch = (this.currentBatch + 1) % totalBatches;
       this.updateDisplayItems();
       this.render();
-      console.log(`Weather batch ${this.currentBatch + 1}/${totalBatches}`);
     }, this.BATCH_INTERVAL);
   }
 
@@ -130,8 +127,6 @@ export class WeatherForecast {
         `;
       }).join('')}
     `;
-
-    console.log(`Rendered ${this.displayItems.length} weather items (batch ${this.currentBatch + 1})`);
   }
 
   private escapeHtml(text: string): string {
