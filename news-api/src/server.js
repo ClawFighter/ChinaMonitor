@@ -48,6 +48,33 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
 
+// Get local weather by IP (proxy to wttr.in to avoid CORS)
+app.get('/api/weather/local', async (req, res) => {
+  try {
+    // Use client IP from request headers (if behind proxy) or direct connection
+    const clientIP = req.headers['x-forwarded-for']?.split(',')[0] || 
+                     req.headers['x-real-ip'] || 
+                     req.ip || 
+                     req.connection.remoteAddress;
+    
+    // Fetch from wttr.in with specific IP or let wttr.in detect from request
+    const response = await fetch('https://wttr.in/?format=3', {
+      headers: {
+        'User-Agent': 'ChinaMonitor/1.0'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`wttr.in error: ${response.status}`);
+    }
+    
+    const text = await response.text();
+    res.json({ raw: text });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch weather', details: error.message });
+  }
+})
+
 // Get latest news (optional filters)
 app.get('/api/news', async (req, res) => {
   const { category, region, source, limit = 50 } = req.query

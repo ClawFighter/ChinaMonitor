@@ -180,6 +180,14 @@ header {
   gap: 0.75rem;
   font-family: var(--digital-font);
   font-size: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.weather-display.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .weather-display .fa-location-dot {
@@ -292,15 +300,17 @@ main {
   gap: 1rem;
   min-height: 400px;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .left-panel {
-  flex: 3;
+  flex: 2;
   background: var(--panel-bg);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .left-panel h2 {
@@ -377,6 +387,7 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
 }
 
 .right-panel h2 {
@@ -406,7 +417,7 @@ main {
 
 #weather-content {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   min-height: 0;
 }
 
@@ -414,6 +425,7 @@ main {
   flex: 1;
   overflow-y: auto;
   min-height: 0;
+  overflow-x: hidden;
 }
 
 
@@ -661,7 +673,7 @@ main {
 /* ========== WEATHER STYLES ========== */
 .weather-header {
   display: grid;
-  grid-template-columns: 1fr 50px 120px 120px;  /* Low/High Temp 各加 20px */
+  grid-template-columns: minmax(80px, 1fr) 50px minmax(100px, 120px) minmax(100px, 120px);
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   background: #9ca3af;         /* 浅灰 - Weather 表头 (亮色主题) */
@@ -672,6 +684,7 @@ main {
   top: 0;
   z-index: 1;
   color: #ffffff;
+  min-width: 0;
 }
 
 /* 暗色主题：深灰背景 */
@@ -687,7 +700,7 @@ main {
 
 .weather-item {
   display: grid;
-  grid-template-columns: 1fr 50px 120px 120px;  /* Low/High Temp 各加 20px */
+  grid-template-columns: minmax(80px, 1fr) 50px minmax(100px, 120px) minmax(100px, 120px);
   gap: 0.75rem;
   padding: 10px 0;  /* 上下 padding: 10px */
   margin: 0;
@@ -696,6 +709,7 @@ main {
   transition: all 0.3s ease;
   animation: weatherFlip 0.6s ease-in-out;
   transform-style: preserve-3d;
+  min-width: 0;
 }
 
 .weather-item:last-child {

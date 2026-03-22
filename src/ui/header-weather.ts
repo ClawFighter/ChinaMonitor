@@ -65,20 +65,29 @@ export class HeaderWeather {
 
   private hideWeatherDisplay(): void {
     if (this.weatherDisplay) {
-      this.weatherDisplay.style.display = 'none'
+      this.weatherDisplay.classList.remove('show')
+      setTimeout(() => {
+        this.weatherDisplay!.style.display = 'none'
+      }, 400)
     }
   }
 
   private showWeatherDisplay(): void {
     if (this.weatherDisplay) {
       this.weatherDisplay.style.display = 'flex'
+      // Trigger reflow to restart animation
+      void this.weatherDisplay.offsetWidth
+      this.weatherDisplay.classList.add('show')
     }
   }
 
   private async fetchWeatherByIP(): Promise<void> {
     try {
       // Browser directly fetches from wttr.in (uses browser's IP for location)
-      const response = await fetch('https://wttr.in/?format=3')
+      const response = await fetch('https://wttr.in/?format=3', { 
+        mode: 'cors',
+        cache: 'no-cache'
+      })
       const text = await response.text()
       
       // Parse: "los angeles: ☀️   +22°C"
@@ -91,7 +100,7 @@ export class HeaderWeather {
         
         // Set location with capitalization
         if (this.locationElement) {
-          const capitalizedLocation = location.split(' ').map(word => 
+          const capitalizedLocation = location.split(' ').map((word: string) => 
             word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
           ).join(' ')
           this.locationElement.textContent = capitalizedLocation
@@ -112,7 +121,8 @@ export class HeaderWeather {
         this.showWeatherDisplay()
       }
     } catch (error) {
-      console.error('Failed to get weather from wttr.in:', error)
+      // Hide weather display on error
+      this.hideWeatherDisplay()
     }
   }
 
