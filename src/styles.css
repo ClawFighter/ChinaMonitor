@@ -43,14 +43,19 @@
   color: #2563eb;
 }
 
-/* 暗色主题：天气图标荧光绿 */
+/* 暗色主题：天气图标柔和绿 */
 [data-theme='dark'] .weather-icon-cell {
-  color: #39ff14;
+  color: #4ade80;
 }
 
 /* 暗色主题：右上角气温白色 */
 [data-theme='dark'] #weather-temp {
-  color: #ffffff;
+  color: #fafafa;
+}
+
+/* 亮色主题：右上角气温深色 */
+[data-theme='light'] #weather-temp {
+  color: #09090b;
 }
 
 .weather-temp-cell {
@@ -66,38 +71,61 @@
   --digital-font: 'DSEG14', monospace;
 }
 
+/* ========== DARK THEME (Default) - Data Dashboard Optimized ========== */
 :root {
-  --bg-color: #0f172a;
-  --text-color: #f1f5f9;
-  --panel-bg: #1e293b;
-  --accent-color: #3b82f6;
-  --border-color: #334155;
-  --card-bg: #2d3748;
-  --header-bg: #1e293b;
-  --header-text: #f1f5f9;
-  --icon-color: #39ff14;      /* 荧光绿 - 暗色主题图标颜色 */
-  --clock-color: #39ff14;     /* 荧光绿 - 暗色主题时钟颜色 */
-  --weather-color: #39ff14;   /* 荧光绿 - 暗色主题天气温度颜色 */
+  /* Backgrounds - Deep, calm, reduces eye strain */
+  --bg-color: #09090b;        /* Zinc 950 - 纯黑背景 */
+  --panel-bg: #18181b;        /* Zinc 900 - 面板 */
+  --card-bg: #27272a;         /* Zinc 800 - 标题卡片 */
+  --header-bg: #18181b;       /* Zinc 900 - Header */
+  
+  /* Text - High contrast, readable */
+  --text-color: #fafafa;      /* Zinc 50 - 主要文字 */
+  --header-text: #fafafa;     /* Zinc 50 - Header 文字 */
+  
+  /* Accents - Professional, data-viz friendly */
+  --accent-color: #3b82f6;    /* Blue 500 - 主强调色 */
+  --border-color: #27272a;    /* Zinc 800 - 边框 */
+  
+  /* Icons & Indicators - Soft, non-neon */
+  --icon-color: #22c55e;      /* Green 500 - 柔和绿色 */
+  --clock-color: #22c55e;     /* Green 500 - 时钟 */
+  --weather-color: #22c55e;   /* Green 500 - 天气 */
 }
 
+/* ========== LIGHT THEME - Clean & Professional ========== */
 [data-theme='light'] {
-  --bg-color: #d1d5db;        /* 中灰 - 整个网页背景 (Gray 300) */
-  --text-color: #1f2937;      /* 深灰正文 (Gray 800) */
-  --panel-bg: #ffffff;        /* 白色 - 面板背景 */
-  --accent-color: #2563eb;    /* 蓝色强调 */
-  --border-color: #9ca3af;    /* 中灰边框 (Gray 400) */
-  --card-bg: #6b7280;         /* 中灰标题背景 (Gray 500) */
-  --header-bg: #ffffff;       /* 白色 - Header 背景 */
-  --header-text: #1f2937;     /* 深灰文字 */
-  --icon-color: #2563eb;      /* 蓝色图标 - 与 accent 一致 */
-  --clock-color: #1f2937;     /* 深色时钟 - 确保可见 */
-  --weather-color: #1f2937;   /* 深色温度 - 确保可见 */
+  /* Backgrounds - Clean, modern, professional */
+  --bg-color: #ffffff;        /* Pure White - 清爽背景 */
+  --panel-bg: #ffffff;        /* White - 面板 */
+  --card-bg: #f4f4f5;         /* Zinc 100 - 标题卡片 */
+  --header-bg: #ffffff;       /* White - Header */
+  
+  /* Text - Maximum contrast */
+  --text-color: #09090b;      /* Zinc 950 - 主要文字 */
+  --header-text: #09090b;     /* Zinc 950 - Header 文字 */
+  
+  /* Accents - Trustworthy blue */
+  --accent-color: #2563eb;    /* Blue 600 - 强调色 */
+  --border-color: #e4e4e7;    /* Zinc 200 - 边框 */
+  
+  /* Icons & Indicators - Clear, visible */
+  --icon-color: #16a34a;      /* Green 600 - 图标 */
+  --clock-color: #16a34a;     /* Green 600 - 时钟 */
+  --weather-color: #16a34a;   /* Green 600 - 天气 */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Smooth transitions - 200-300ms per UI/UX Pro Max */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
 html, body {
@@ -195,6 +223,11 @@ header {
   color: var(--icon-color);
 }
 
+/* 亮色主题：右上角地图图钉蓝色 */
+[data-theme='light'] .weather-display .fa-location-dot {
+  color: #2563eb;
+}
+
 #weather-location {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
@@ -208,6 +241,11 @@ header {
   min-width: 24px;
   text-align: center;
   color: var(--icon-color);
+}
+
+/* 亮色主题：右上角天气图标蓝色 */
+[data-theme='light'] #weather-icon {
+  color: #2563eb;
 }
 
 #weather-temp {
@@ -269,7 +307,7 @@ main {
 }
 
 .cross-rates-section h2 i {
-  color: #39ff14;  /* 荧光绿，与 Live News 一致 */
+  color: var(--icon-color);
   position: absolute;
   left: 1rem;
 }
@@ -328,7 +366,7 @@ main {
 }
 
 .left-panel h2 i {
-  color: #39ff14;  /* 暗色主题：荧光绿 */
+  color: var(--icon-color);
   position: absolute;
   left: 1rem;
 }
@@ -343,7 +381,7 @@ main {
 [data-theme='light'] .right-panel h2,
 [data-theme='light'] .bottom-section h2,
 [data-theme='light'] .cross-rates-section h2 {
-  background: #3b82f6;
+  background: var(--accent-color);
   color: #ffffff;
 }
 
@@ -405,7 +443,7 @@ main {
 }
 
 .right-panel h2 i {
-  color: #39ff14;  /* 暗色主题：荧光绿 */
+  color: var(--icon-color);
   position: absolute;
   left: 1rem;
 }
@@ -456,7 +494,7 @@ main {
 }
 
 .bottom-section h2 i {
-  color: #39ff14;  /* 暗色主题：荧光绿 */
+  color: var(--icon-color);
   position: absolute;
   left: 1rem;
 }
