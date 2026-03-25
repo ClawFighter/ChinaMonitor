@@ -524,7 +524,16 @@ main {
   padding: 0;
   gap: 0;
   overflow: hidden;
-  background: #475569;  /* 与 ticker-row 一致 */
+}
+
+/* 亮色主题：股票 wrapper 浅蓝色 - 与天气表头一致 */
+[data-theme='light'] .tickers-wrapper {
+  background: #60a5fa;         /* Blue 400 - 浅蓝 */
+}
+
+/* 暗色主题：股票 wrapper 深绿色 - 与天气表头一致 */
+[data-theme='dark'] .tickers-wrapper {
+  background: #15803d;         /* Green 700 - 深绿 */
 }
 
 .ticker-row {
@@ -535,7 +544,28 @@ main {
   height: 50px;
   margin: 0;
   padding: 0;
-  background: #475569;  /* 深灰蓝 */
+}
+
+/* 亮色主题：三个 row 渐变到 wrapper 颜色 */
+[data-theme='light'] .ticker-row:first-child {
+  background: #93c5fd;         /* Blue 300 - 最浅 */
+}
+[data-theme='light'] .ticker-row:nth-child(2) {
+  background: #7fb3f9;         /* Blue 350 - 中等 */
+}
+[data-theme='light'] .ticker-row:nth-child(3) {
+  background: #60a5fa;         /* Blue 400 - 与 wrapper 一致 */
+}
+
+/* 暗色主题：三个 row 渐变到 wrapper 颜色 */
+[data-theme='dark'] .ticker-row:first-child {
+  background: #16a34a;         /* Green 600 - 最亮 */
+}
+[data-theme='dark'] .ticker-row:nth-child(2) {
+  background: #159042;         /* Green 650 - 中等 */
+}
+[data-theme='dark'] .ticker-row:nth-child(3) {
+  background: #15803d;         /* Green 700 - 与 wrapper 一致 */
 }
 
 .ticker-label {
@@ -550,6 +580,11 @@ main {
   border-radius: 0;
   flex-shrink: 0;
   line-height: 1;
+}
+
+/* 股票 label 背景透明 */
+.ticker-label {
+  background: transparent;
 }
 
 .ticker-container {
@@ -714,7 +749,6 @@ main {
   grid-template-columns: minmax(80px, 1fr) 50px minmax(100px, 120px) minmax(100px, 120px);
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background: #9ca3af;         /* 浅灰 - Weather 表头 (亮色主题) */
   font-family: var(--digital-font);
   font-size: 0.85rem;
   font-weight: 600;
@@ -725,9 +759,14 @@ main {
   min-width: 0;
 }
 
-/* 暗色主题：深灰背景 */
+/* 亮色主题：天气表头浅蓝色 - 与标题深蓝 (#2563eb) 区分 */
+[data-theme='light'] .weather-header {
+  background: #60a5fa;         /* Blue 400 - 浅蓝 */
+}
+
+/* 暗色主题：天气表头深绿色 - 与标题荧光绿 (#22c55e) 区分 */
 [data-theme='dark'] .weather-header {
-  background: #4b5563;         /* 深灰 - Weather 表头 (暗色主题) */
+  background: #15803d;         /* Green 700 - 深绿 */
 }
 
 /* Weather Individual Card Style with Flip Animation */
