@@ -243,6 +243,11 @@ main {
   width: auto !important;
 }
 
+/* Light theme: BJT time golden yellow (same as desktop) */
+[data-theme='light'] #bjt-time-mobile {
+  color: #fde047 !important;
+}
+
 .tickers-wrapper {
   gap: 0;
 }
