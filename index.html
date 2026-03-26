@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&family=DSEG14&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6595152730429240" crossorigin="anonymous"></script>
+    <!-- Mobile Portrait Mode Styles -->
+    <link rel="stylesheet" href="/mobile-portrait.css" media="screen and (orientation: portrait)" />
     <style>
       /* Loading 遮罩层 - 页面加载完成前显示 */
       #loading-overlay {
@@ -106,7 +108,7 @@
         </section>
         
         <section class="bottom-section">
-          <h2><i class="fa-solid fa-chart-line"></i> Real-time Stock Prices <span id="bjt-time" class="bjt-time"></span></h2>
+          <h2><i class="fa-solid fa-chart-line"></i> Real-time Stock Prices <span id="bjt-time" class="bjt-time"></span><span id="bjt-time-mobile" class="bjt-time-mobile"></span></h2>
           <div class="tickers-wrapper">
             <div class="ticker-row"><div class="ticker-label">A-SHARE</div><div id="stock-ticker-a" class="ticker-container"><div id="stock-content-a" class="ticker-content"></div></div></div>
             <div class="ticker-row"><div class="ticker-label">H-SHARE</div><div id="stock-ticker-h" class="ticker-container"><div id="stock-content-h" class="ticker-content"></div></div></div>

@@ -25,6 +25,8 @@ import { ViewCounter } from './ui/view-counter'
 
 function updateBJTTime(): void {
   const bjtElement = document.getElementById('bjt-time');
+  const bjtMobileElement = document.getElementById('bjt-time-mobile');
+  
   if (!bjtElement) return;
   
   const now = new Date();
@@ -39,7 +41,15 @@ function updateBJTTime(): void {
   const minutes = String(bjtTime.getUTCMinutes()).padStart(2, '0');
   const seconds = String(bjtTime.getUTCSeconds()).padStart(2, '0');
   
-  bjtElement.textContent = `BJT ${day} ${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+  // Desktop: full format
+  if (bjtElement) {
+    bjtElement.textContent = `BJT ${day} ${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+  }
+  
+  // Mobile: time only
+  if (bjtMobileElement) {
+    bjtMobileElement.textContent = `BJT ${hours}:${minutes}:${seconds}`;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

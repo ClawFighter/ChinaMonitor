@@ -512,6 +512,11 @@ main {
   right: 1rem;
 }
 
+/* Hide mobile BJT time on desktop */
+#bjt-time-mobile {
+  display: none;
+}
+
 /* 亮色主题：BJT 时间淡金色 */
 [data-theme='light'] .bjt-time {
   color: #fde047;
