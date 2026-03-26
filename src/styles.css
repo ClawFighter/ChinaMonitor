@@ -96,9 +96,9 @@
 /* ========== LIGHT THEME - Clean & Professional ========== */
 [data-theme='light'] {
   /* Backgrounds - Clean, modern, professional */
-  --bg-color: #ffffff;        /* Pure White - 清爽背景 */
+  --bg-color: #f4f4f5;        /* Zinc 100 - 浅灰背景 */
   --panel-bg: #ffffff;        /* White - 面板 */
-  --card-bg: #f4f4f5;         /* Zinc 100 - 标题卡片 */
+  --card-bg: #e4e4e7;         /* Zinc 200 - 标题卡片 */
   --header-bg: #ffffff;       /* White - Header */
   
   /* Text - Maximum contrast */
@@ -107,7 +107,7 @@
   
   /* Accents - Trustworthy blue */
   --accent-color: #2563eb;    /* Blue 600 - 强调色 */
-  --border-color: #e4e4e7;    /* Zinc 200 - 边框 */
+  --border-color: #d4d4d8;    /* Zinc 300 - 边框 */
   
   /* Icons & Indicators - Clear, visible */
   --icon-color: #16a34a;      /* Green 600 - 图标 */
